@@ -1,0 +1,40 @@
+#viewlist{
+    display: none;
+    background: #0e3a2aba;    
+}
+
+#lishow{
+    display: none;
+}
+#editli{
+    display: none;
+    background-color: #f1f1f1;
+}
+#newlhide{
+    display: block;
+}
+body{
+    background-color: black;
+    color: white;
+}
+.rem{
+    background-color:  #150e3a;
+}
+.c-b{
+    color: black;
+}
+img{
+    height: 100%;
+
+}
+.f-r{
+    float: right;
+    font-size:48px;
+    color:red"
+}
+.b-mar{
+    margin: 10px;
+}
+#list-details{
+    color: white;
+}
