@@ -1,4 +1,4 @@
-var q = JSON.parse(window.localStorage.getItem('list'));
+var q = JSON.parse(window.localStorage.getItem('create'));
 function add(){
    document.getElementById('listing').style.display = 'none';
    document.getElementById('viewlist').style.display = 'block';
@@ -6,12 +6,12 @@ function add(){
 }
 
 function savel(){
- var q = JSON.parse(window.localStorage.getItem('list'));
+ var q = JSON.parse(window.localStorage.getItem('create'));
   var n =  document.getElementById('name').value;
    if(q == undefined){
         var listall = []
     }else{
-        var listall = JSON.parse(window.localStorage.getItem('list'));
+        var listall = JSON.parse(window.localStorage.getItem('create'));
         
     }
     console.log(listall)
@@ -24,7 +24,7 @@ function savel(){
       listall.push(add);
       
       console.log(listall);
-      var listall = window.localStorage.setItem('list', JSON.stringify(listall)); 
+      var listall = window.localStorage.setItem('create', JSON.stringify(listall)); 
       document.getElementById('viewlist').style.display = 'none';
       document.getElementById('listing').style.display = 'block';
       document.getElementById('name').value = '';
@@ -34,7 +34,7 @@ function savel(){
 }
 
 function showopt(){
-    var opt = JSON.parse(window.localStorage.getItem('list'));
+    var opt = JSON.parse(window.localStorage.getItem('create'));
     var txt = '';
     var i = 0;
     for(var i = 0; i < opt.length; i++){
@@ -58,7 +58,7 @@ function lishow(j){
     document.getElementById('lishow').style.display = 'block';
     document.getElementById('libutton').innerHTML = "<button class='btn btn-danger btn-block' onclick='store("+j+")'>Submit</button><br>";
     document.getElementById('libutton').innerHTML += "<button class='btn btn-danger btn-block' onclick='showopt();'>Cancel</button> "
-    var opt = JSON.parse(window.localStorage.getItem('list'));
+    var opt = JSON.parse(window.localStorage.getItem('create'));
     var  txt = opt[j].name;
     var b =  JSON.parse(window.localStorage.getItem(txt))
     document.getElementById('lilab').innerHTML = 'Your list view of '+txt+'<span class="fa fa-trash f-r" style="font-size: 35px;color: red;" onclick="deletelist('+j+')"></span><br><br>  ';
@@ -81,13 +81,13 @@ function lishow(j){
   document.getElementById('storeli').innerHTML = val;
 }
 function deletelist(j){
-  var list = JSON.parse(window.localStorage.getItem('list'));
+  var list = JSON.parse(window.localStorage.getItem('create'));
   var del = list[j].name;
   if (confirm("Are you sure you want to delete all record of {{ "+del+" }} list!")) {
     txt = "You pressed Cancel!";
     list.splice(j, 1);
     window.localStorage.removeItem(del);
-    window.localStorage.setItem('list', JSON.stringify(list)); 
+    window.localStorage.setItem('create', JSON.stringify(list)); 
     document.getElementById('lishow').style.display = 'none';
     showopt(); 
   } else {
@@ -95,7 +95,7 @@ function deletelist(j){
   }
 }
 function removelist(list, num){
-  var localStorageValue = JSON.parse(window.localStorage.getItem('list'));
+  var localStorageValue = JSON.parse(window.localStorage.getItem('create'));
   debugger
   var s = localStorageValue[list].name;
   console.log(s);
@@ -114,7 +114,7 @@ function storeopt(){
    
 }
 function store(j){
-  var opt = JSON.parse(window.localStorage.getItem('list'));
+  var opt = JSON.parse(window.localStorage.getItem('create'));
   var  txt = opt[j].name;
   var l = j;
   var text = document.getElementById('create').value;
